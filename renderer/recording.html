@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Prevent Electron Warning from popping up when developing -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self'" /> --> 
+    <!-- Set title of page (now being done in main.js) -->
+    <!-- <title>Endeavor GCSI Procedure Room Recording System</title> --> 
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body class="bg-gradient-primary">
+     <div class="container"> <!--"container-fluid" instead of just "container" to allow larger video cards for better visibility-->
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                 <!-- Back Button positioned above recording container -->
+                 <div class="d-flex justify-content-start mt-3">
+                    <button class="btn btn-secondary d-flex align-items-center" onclick="window.history.back()">
+                        <i class="fas fa-arrow-left me-2"></i> Back
+                    </button>
+                </div>
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h2>Record Your Video</h2>
+                                </div>
+                                <div class="controls">
+                                    <select id="cameraSelect">
+                                        <option value="" disabled selected>Select cameras to add</option>
+                                    </select>
+                                    <button id="addCamera" class="btn btn-primary">Add Camera</button>
+                                </div>
+                                <div id="video-container" class="video-container">
+                                    <div id="contextMenu" class="context-menu">
+                                        <div class="menu-item" id="deleteStream">Remove stream</div>
+                                    </div>
+                            <!--    
+                                    <div class="video-item">
+                                        <span id="replayVideoLabel" role="label">Replay Recorded Video</span>
+                                        <video id="replayVideo" controls style="display: none;" aria-labelledby="replayVideoLabel"></video>
+                                    </div> 
+                            -->
+                                </div>
+                                <div id="replay-video-container" class="video-container" style="display: none;">
+                                    <video id="replayVideo" controls style="display: none;"></video>
+                                </div> 
+                                <div class="recording-buttons">
+                                    <!-- Initially hidden and disabled Start Recording button -->
+                                    <button id="recordButton" class="btn btn-success btn-lg" disabled style="display: none;">
+                                        <i class="fas fa-circle-dot"></i> Start Recording
+                                    </button>
+                                    <!-- Message to inform the user of initialization delay + loading dots-->
+                                    <div id="initMessageContainer" class="text-center">
+                                        <p id="initMessage">Please wait, initializing Media Recorder. This shouldn't take long.<br>Set up your cameras in the meantime! </p>
+                                        <div class="loading-dots">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                    <button id="replayButton" class="btn btn-warning hidden">
+                                        <i class="fas fa-rotate-left"></i> Replay
+                                    </button>
+                                    
+                                    <button id="deleteButton" class="btn btn-danger hidden">
+                                        <i class="fas fa-trash"></i> Delete Recording
+                                    </button>
+                                    
+                                    <button id="uploadVideoButton" class="btn btn-primary hidden">
+                                        <i class="fas fa-upload"></i> Upload Video
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Confirmation Modal -->
+    <div class="modal" id="uploadConfirmationModal" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Are you sure you want to upload this video?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirmUpload" class="btn btn-success">Confirm</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="deleteConfirmationModal" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Are you sure you want to DELETE this video?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirmDelete" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start recording Confirmation Modal -->
+    <div class="modal" id="startRecordingConfirmationModal" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Are you sure you want to start a new recording? Doing so will delete all existing recordings.</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirmStartRecording" class="btn btn-success">Start new recording</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!--reference script-->
+    <script src="./js/recording.js"></script>
+</body>
+
+</html>
