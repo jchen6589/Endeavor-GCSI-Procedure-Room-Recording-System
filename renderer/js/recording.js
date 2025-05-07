@@ -117,7 +117,12 @@ async function listCameras() {
 async function addCameraStream(deviceId) {
   try {
     const constraints = {
-      video: deviceId ? { deviceId: { exact: deviceId } } : true,
+      video: {
+        deviceId: deviceId ? { exact: deviceId } : undefined,
+        width: { ideal: 1920 },
+        height: { ideal: 1080 },
+        frameRate: { ideal: 30, max: 60 }
+      },
       audio: false // No need to capture audio from the camera stream because we are using default computer mic
     };
 
@@ -777,8 +782,9 @@ function deleteRecording() {
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////IndexedDB functions (for saving studentt recordings temporarily in larger storage capacity than localStorage)
-/////////Retained from initial website building
+/////////IndexedDB functions (for saving student recordings temporarily in larger storage capacity than localStorage)
+/////////This block of code and all commented blocks above related to IndexedDB were retained from initial website building, where storage was limited by local storage size of the browser.
+/////////As a standalone app, IndexedDB storage is no longer required to store recordings.
 
 // // Open IndexedDB database
 // function openDB() {
