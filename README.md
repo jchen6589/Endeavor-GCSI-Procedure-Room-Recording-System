@@ -1,12 +1,12 @@
 # 📹 Endeavor GCSI Procedure Room Recording System
 
-The **Endeavor GCSI Procedure Room Recording System** was developed to support self-directed procedural practice and feedback for medical trainees at **Endeavor Health Evanston Hospital's GCSI Lab**. With medical students, residents, and attendings frequently using the space, coordinating in-person feedback sessions with facilitators can be challenging.
+The **Endeavor GCSI Procedure Room Recording System** was developed to support self-directed procedural practice and feedback for medical trainees at Endeavor Health Evanston Hospital's GCSI Lab. With medical students, residents, and attendings' busy schedules, coordinating in-person feedback sessions with facilitators can be challenging.
 
-This system provides a **secure, user-friendly desktop application** that enables trainees to **record themselves from multiple camera angles**, then share their recordings with facilitators for **asynchronous feedback**—maximizing flexibility without compromising quality.
+This system provides a secure, user-friendly desktop application (plus a few supplementary software and hardware components) that enables trainees to record themselves from multiple camera angles, then share their recordings with facilitators for asynchronous feedback—maximizing flexibility without compromising quality of feedback.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 - 🔴 Minimal input required from students to record and save videos  
 - 🎥 Support for **multiple adjustable camera angles**  
@@ -17,25 +17,25 @@ This system provides a **secure, user-friendly desktop application** that enable
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript  
 - **Framework**: Electron Forge  
 
 ---
 
-## 🧰 Required Materials
+## Required Materials
 
 To use the system, you’ll need the following:
 
 - A computer with internet access  
 - Multiple video sources (e.g., webcams, iPads)  
 - Access to the GCSI shared drive  
-- An **encrypted USB drive** for secure file transfer  
+- An encrypted USB drive for secure file transfer  
 
 ---
 
-## 🏁 Getting Started
+## Getting Started
 
 1. **Download** the latest `Setup.exe` and `lockdown.exe` from the [Releases](https://github.com/your-repo/releases) page.  
 2. **Configure** both files to run on system startup.  
@@ -44,34 +44,32 @@ To use the system, you’ll need the following:
 5. **Transfer** recordings to the GCSI shared drive.  
 6. Notify facilitators that recordings are ready for review.
 
-📄 For detailed setup steps, refer to the **"Instructions for Use"** document in the **Important Documents** folder.
+📄 For more detailed setup steps, refer to the **"Instructions for Use"** document in the **Important Documents** folder.
 
 ---
 
-## ⚠️ Known Issues & Future Improvements
+## Known Issues & Future Improvements
 
-- **Kiosk Mode**: Current kiosk simulation prevents most misuse but is not foolproof. A more secure implementation using **Windows Enterprise Shell Launcher** is recommended for future iterations.
+- **Kiosk Mode**: Current kiosk simulation prevents most misuse but is not foolproof. A more secure implementation using **Windows Enterprise Shell Launcher** (requires a computer running Windows Enterprise software) is recommended for future iterations.
 - **Camera Ports**: Systems may lack sufficient USB ports for multiple cameras. Consider using a **USB hub**.
-- **Single Stream Output**: Currently, the app records a single merged video. If separate video files per camera are needed, the code will require modification.
+- **Single Stream Output**: Currently, the app records a single video containing all camera streams. If individual video files for each camera stream are needed, the code will require modification.
 
 ---
 
-## 🤝 Contributing & Alternate Use Cases
+## Contributing & Alternate Use Cases
 
 This system was originally designed for use in the GCSI Procedure Room but is **adaptable for other educational or training scenarios**.
 
-You're welcome to:
+If the system as is doesn't suit your needs, you're welcome to:
 
 - Fork the repository for your own setup  
 - Submit a feature request or bug report  
 - Create a pull request to contribute improvements  
-- Reach out directly via email with questions or suggestions  
-
-📧 Contact: **johnchen2024@u.northwestern.edu**
+- Reach out directly via email with questions or suggestions!
 
 ---
 
-## 👤 Author
+## Author
 
 **John Chen**  
 Endeavor GCSI Innovation Lab Associate (2025)  
@@ -79,11 +77,11 @@ Endeavor GCSI Innovation Lab Associate (2025)
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
-Special thanks to:
+Special thanks to the following GCSI team members:
 
-- Dan Tarchala  
-- John Cram  
-- Todd Zimmerman  
-- Joy Layton  
+- Dan Tarchala  (Innovation Lab Specialist)
+- John Cram  (Medical Simulation Program Manager)
+- Todd Zimmerman (Simulation Fellow)
+- Joy Layton  (Simulation Lab Technician)
