@@ -380,8 +380,19 @@ addCameraButton.addEventListener('click', function() {
   const selectedDeviceId = cameraSelect.value;
 
   if (!selectedDeviceId) {
-      alert("Please select a camera first.");
-      return;
+    // alert('Please select a camera first.');
+    Toastify({
+      text: "Please select a camera first.",
+      duration: 5000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "#FF4C4C", // standard red
+        color: "#fff"
+      }
+    }).showToast();
+    return;
   }
 
   addCameraStream(selectedDeviceId);
@@ -621,7 +632,18 @@ async function uploadVideo() {
 
   // Check if there are recorded chunks
   if (recordedChunks.length === 0) {
-    alert('Please record a video first by pressing "Start Recording".');
+    // alert('Please record a video first by pressing "Start Recording".');
+    Toastify({
+      text: 'Please record a video first by pressing "Start Recording".',
+      duration: 5000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "#FF4C4C", // standard red
+        color: "#fff"
+      }
+    }).showToast();
     return;  // Prevent upload
   }
 
@@ -663,7 +685,7 @@ async function uploadVideo() {
 
 // Catch video-saved success event from main.js
 ipcRenderer.on('video-saved', () => {
-  alert('Video saved successfully!');
+  // alert('Video saved successfully!');
   recordedChunks=[];
   recordedBlob=null;
 
@@ -683,14 +705,27 @@ ipcRenderer.on('video-saved', () => {
   };
   
   // Bring back to start page
+  localStorage.setItem("showSuccessToast", "true");
   showStartPage(); 
+  
 })
 
 // Function to replay the video after recording
 function replayRecording() {
 
   if (!recordedBlob) {
-    alert('No recording available to replay!');
+    // alert('No recording available to replay!');
+    Toastify({
+      text: 'No recording available to replay!',
+      duration: 5000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "#FF4C4C", // standard red
+        color: "#fff"
+      }
+    }).showToast();
     return;
   }
 
@@ -730,7 +765,18 @@ function replayRecording() {
 function deleteRecording() {
 
   if (!recordedBlob) {
-    alert('No recording to delete.');
+    // alert('No recording to delete.');
+    Toastify({
+      text: 'No recording to delete.',
+      duration: 5000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "#FF4C4C", // standard red
+        color: "#fff"
+      }
+    }).showToast();
     return;
   }
 
@@ -746,7 +792,18 @@ function deleteRecording() {
   videoContainer.style.display = 'block';
 
   deleteConfirmationModal.hide();
-  alert('Recording deleted and reset.');
+  // alert('Recording deleted and reset.');
+  Toastify({
+    text: 'Recording deleted and reset.',
+    duration: 5000,
+    close: true,
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "#28a745", // standard green
+      color: "#fff"
+    }
+  }).showToast();
   
   // getVideoBlobFromDB().then(videoBlobs => {
   //   if (videoBlobs.length > 0) {

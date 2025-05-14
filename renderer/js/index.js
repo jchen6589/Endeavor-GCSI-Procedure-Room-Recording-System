@@ -98,3 +98,26 @@ confirmInfoModal._element.addEventListener('show.bs.modal', () => {
 confirmInfoModal._element.addEventListener('hidden.bs.modal', () => {
   isModalOpen = false; // Reset the modal state when it closes
 });
+
+// Show Toastify if video was saved in previous session
+document.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("showSuccessToast") === "true") {
+    // Load Toastify if not already available
+    if (typeof Toastify !== 'undefined') {
+      Toastify({
+        text: "Video saved successfully!",
+        duration: 5000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "#28a745", // green
+          color: "#fff"
+        }
+      }).showToast();
+    }
+
+    // Clean up the flag
+    localStorage.removeItem("showSuccessToast");
+  }
+});
