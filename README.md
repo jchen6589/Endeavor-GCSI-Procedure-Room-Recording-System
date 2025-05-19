@@ -1,4 +1,8 @@
-# 📹 Endeavor GCSI Procedure Room Recording System
+# Endeavor GCSI Procedure Room Recording System
+
+<p align="center">
+  <img src="https://github.com/jchen6589/Endeavor-GCSI-Procedure-Room-Recording-System/blob/89dbea679ea6eb3aadbca6f167a47dc4baf14a36/assets/icons/app%20screenshot.png?raw=true" width="70%" height="70%">
+</p>
 
 The **Endeavor GCSI Procedure Room Recording System** was developed to support self-directed procedural practice and feedback for medical trainees at Endeavor Health Evanston Hospital's GCSI Lab. With medical students, residents, and attendings' busy schedules, coordinating in-person feedback sessions with facilitators can be challenging.
 
