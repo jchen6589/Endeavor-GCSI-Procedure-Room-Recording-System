@@ -4,8 +4,6 @@ The **Endeavor GCSI Procedure Room Recording System** was developed to support s
 
 This system provides a secure, user-friendly desktop application (plus a few supplementary software and hardware components) that enables trainees to record themselves from multiple camera angles, then share their recordings with facilitators for asynchronous feedback—maximizing flexibility without compromising quality of feedback.
 
----
-
 ## Key Features
 
 - 🔴 Minimal input required from students to record and save videos  
@@ -15,14 +13,10 @@ This system provides a secure, user-friendly desktop application (plus a few sup
 - 🧾 Files are auto-named using student information for easy organization  
 - 🔐 Simulated **kiosk mode** to prevent cross-user access to personal data  
 
----
-
 ## Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript  
 - **Framework**: Electron Forge  
-
----
 
 ## Required Materials
 
@@ -32,8 +26,6 @@ To use the system, you’ll need the following:
 - Multiple video sources (e.g., webcams, iPads)  
 - Access to the GCSI shared drive  
 - An encrypted USB drive for secure file transfer  
-
----
 
 ## Getting Started
 
@@ -46,15 +38,11 @@ To use the system, you’ll need the following:
 
 📄 For more detailed setup steps, refer to the **"Instructions for Use"** document in the **Important Documents** folder.
 
----
-
 ## Known Issues & Future Improvements
 
 - **Kiosk Mode**: Current kiosk simulation prevents most misuse but is not foolproof. A more secure implementation using **Windows Enterprise Shell Launcher** (requires a computer running Windows Enterprise software) is recommended for future iterations.
 - **Camera Ports**: Systems may lack sufficient USB ports for multiple cameras. Consider using a **USB hub**.
 - **Single Stream Output**: Currently, the app records a single video containing all camera streams. If individual video files for each camera stream are needed, the code will require modification.
-
----
 
 ## Contributing & Alternate Use Cases
 
@@ -67,15 +55,11 @@ If the system as is doesn't suit your needs, you're welcome to:
 - Create a pull request to contribute improvements  
 - Reach out directly via email with questions or suggestions!
 
----
-
 ## Author
 
 **John Chen**  
 Endeavor GCSI Innovation Lab Associate (2025)  
 📧 johnchen2024@u.northwestern.edu
-
----
 
 ## Acknowledgements
 
