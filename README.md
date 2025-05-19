@@ -11,11 +11,11 @@ This system provides a secure, user-friendly desktop application (plus a few sup
 ## Key Features
 
 - 🔴 Minimal input required from students to record and save videos  
-- 🎥 Support for **multiple adjustable camera angles**  
-- 💾 Recordings saved in **.mp4** format for easy playback  
-- 🖱️ **Drag and resize** video feeds within the UI  
+- 🎥 Support for multiple adjustable camera angles  
+- 💾 Recordings saved in .mp4 format for easy playback  
+- 🖱️ Drag and resize video feeds within the UI  
 - 🧾 Files are auto-named using student information for easy organization  
-- 🔐 Simulated **kiosk mode** to prevent cross-user access to personal data  
+- 🔐 Simulated kiosk mode to prevent cross-user access to personal data  
 
 ## Tech Stack
 
