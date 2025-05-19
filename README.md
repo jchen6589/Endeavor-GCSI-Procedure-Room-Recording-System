@@ -33,24 +33,24 @@ To use the system, you’ll need the following:
 
 ## Getting Started
 
-1. **Download** the latest `Setup.exe` and `lockdown.exe` from the [Releases](https://github.com/your-repo/releases) page.  
-2. **Configure** both files to run on system startup.  
-3. **Set up** the recording environment: plug in webcams, prep procedural equipment, etc.  
-4. Allow students to **record** independently.  
-5. **Transfer** recordings to the GCSI shared drive.  
+1. Download the latest `Setup.exe` and `lockdown.exe` from the [Releases](https://github.com/your-repo/releases) page.  
+2. Configure both files to run on system startup.  
+3. Set up the recording environment: plug in webcams, prep procedural equipment, etc.  
+4. Allow students to record independently.  
+5. Transfer recordings to the GCSI shared drive.  
 6. Notify facilitators that recordings are ready for review.
 
 📄 For more detailed setup steps, refer to the **"Instructions for Use"** document in the **Important Documents** folder.
 
 ## Known Issues & Future Improvements
 
-- **Kiosk Mode**: Current kiosk simulation prevents most misuse but is not foolproof. A more secure implementation using **Windows Enterprise Shell Launcher** (requires a computer running Windows Enterprise software) is recommended for future iterations.
-- **Camera Ports**: Systems may lack sufficient USB ports for multiple cameras. Consider using a **USB hub**.
+- **Kiosk Mode**: Current kiosk simulation prevents most misuse but is not foolproof. A more secure implementation using Windows Enterprise Shell Launcher (requires a computer running Windows Enterprise software) is recommended for future iterations.
+- **Camera Ports**: Systems may lack sufficient USB ports for multiple cameras. Consider using a USB hub.
 - **Single Stream Output**: Currently, the app records a single video containing all camera streams. If individual video files for each camera stream are needed, the code will require modification.
 
 ## Contributing & Alternate Use Cases
 
-This system was originally designed for use in the GCSI Procedure Room but is **adaptable for other educational or training scenarios**.
+This system was originally designed for use in the GCSI Procedure Room but is adaptable for other educational or training scenarios.
 
 If the system as is doesn't suit your needs, you're welcome to:
 
